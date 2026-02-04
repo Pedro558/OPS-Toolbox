@@ -1,0 +1,6 @@
+{
+  "name": "ops-toolbox",
+  "scripts": {
+    "start:api": "uvicorn api.app:app --reload --port 8000"
+  }
+}
