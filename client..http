@@ -1,0 +1,13 @@
+# Variables
+@baseURL = http://127.0.0.1:8000
+
+###
+# Health Check
+GET {{baseURL}}/health
+Accept: application/json
+
+###
+GET {{baseURL}}/checkProcessedFiles
+Accept: application/json
+
+
