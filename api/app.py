@@ -19,9 +19,10 @@ class CheckProcessedFiles(BaseModel):
   files_count: int
   files: list[dict[str, str | int]]
 
-@app.get("/checkProcessedFiles", response_model=CheckProcessedFiles)
-async def check_processed_files():
-  processed_dir = PROCESSED_DIR
+@app.get("/checkProcessedFiles/{site}", response_model=CheckProcessedFiles)
+async def check_processed_files(site: str):
+  """Checks the number of files in the processed directory and returns their names and sizes."""
+  processed_dir = PROCESSED_DIR / site
   
   if not processed_dir.exists():
     return CheckProcessedFiles(files_count=0, files=[])
@@ -29,6 +30,6 @@ async def check_processed_files():
   files=[{
     "file_name": f.name,
     "file_size": f.stat().st_size
-  } for f in processed_dir.iterdir() if f.is_file()]
+  } for f in processed_dir.rglob("*") if f.is_file()]
 
   return CheckProcessedFiles(files_count=len(files), files=[f for f in files])
