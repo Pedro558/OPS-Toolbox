@@ -1,8 +1,5 @@
 import pandas as pd
 
-def remove_first_row(df: pd.DataFrame) -> pd.DataFrame:
-  """Remove the first row of the DataFrame"""
-  return df.iloc[1:]
 
 def rename_inventory_columns(df: pd.DataFrame) -> pd.DataFrame:
   """Rename inventory's Dataframe columns to standard names"""
