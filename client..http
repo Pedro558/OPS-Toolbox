@@ -7,7 +7,7 @@ GET {{baseURL}}/health
 Accept: application/json
 
 ###
-GET {{baseURL}}/checkProcessedFiles
+GET {{baseURL}}/checkProcessedFiles/rjo1
 Accept: application/json
 
 
